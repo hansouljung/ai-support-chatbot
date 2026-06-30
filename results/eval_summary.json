@@ -1,0 +1,15 @@
+{
+  "total_queries": 25,
+  "by_type": {
+    "straightforward": 9,
+    "ambiguous": 7,
+    "out_of_scope": 5,
+    "multi_intent": 2,
+    "adversarial": 2
+  },
+  "auto_label_counts": {
+    "NEEDS_MANUAL_REVIEW": 13,
+    "FAILED_DEFLECTION_NEEDS_REVIEW": 5,
+    "APPROPRIATE_DEFLECTION": 7
+  }
+}

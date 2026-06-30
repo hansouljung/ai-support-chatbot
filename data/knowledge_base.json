@@ -1,0 +1,122 @@
+[
+  {
+    "id": "KB001",
+    "category": "Billing",
+    "question": "How do I update my payment method?",
+    "answer": "Go to Settings > Billing > Payment Methods, click 'Add Payment Method', enter your new card details, and click 'Set as Default'. Your old payment method will remain on file until you remove it."
+  },
+  {
+    "id": "KB002",
+    "category": "Billing",
+    "question": "What happens if my payment fails?",
+    "answer": "If a payment fails, we will retry the charge automatically after 3 days. You'll receive an email notification each time. After 3 failed attempts, your account will be downgraded to the free tier until payment is resolved."
+  },
+  {
+    "id": "KB003",
+    "category": "Billing",
+    "question": "Can I get a refund?",
+    "answer": "Refunds are available within 14 days of purchase for annual plans. Monthly plans are non-refundable but you can cancel anytime to stop future charges. Contact billing@support.com to request a refund."
+  },
+  {
+    "id": "KB004",
+    "category": "Billing",
+    "question": "How do I cancel my subscription?",
+    "answer": "Go to Settings > Billing > Subscription, click 'Cancel Subscription', and confirm. Your account will remain active until the end of the current billing period."
+  },
+  {
+    "id": "KB005",
+    "category": "Account",
+    "question": "How do I reset my password?",
+    "answer": "Click 'Forgot Password' on the login page, enter your email, and follow the reset link sent to your inbox. The link expires after 1 hour."
+  },
+  {
+    "id": "KB006",
+    "category": "Account",
+    "question": "How do I change my email address?",
+    "answer": "Go to Settings > Account > Email, enter your new email address, and confirm via the verification link sent to the new address. Your old email will stop working once verified."
+  },
+  {
+    "id": "KB007",
+    "category": "Account",
+    "question": "How do I delete my account?",
+    "answer": "Go to Settings > Account > Danger Zone > Delete Account. This action is permanent and removes all your data after a 30-day grace period, during which you can reactivate by logging back in."
+  },
+  {
+    "id": "KB008",
+    "category": "Account",
+    "question": "Can I have multiple users on one account?",
+    "answer": "Yes, Team and Enterprise plans support multiple users. Go to Settings > Team > Invite Members to add teammates by email. Free and Pro plans are single-user only."
+  },
+  {
+    "id": "KB009",
+    "category": "Technical",
+    "question": "Why is the app running slowly?",
+    "answer": "Slow performance is usually caused by browser cache buildup or a large number of open projects. Try clearing your browser cache, closing unused tabs, or archiving old projects in Settings > Projects."
+  },
+  {
+    "id": "KB010",
+    "category": "Technical",
+    "question": "Is there a mobile app?",
+    "answer": "Yes, our mobile app is available for iOS and Android. Search for our product name in the App Store or Google Play Store to download it."
+  },
+  {
+    "id": "KB011",
+    "category": "Technical",
+    "question": "Does the platform support offline mode?",
+    "answer": "Limited offline mode is supported on the desktop app only. Changes made offline will sync automatically once you reconnect to the internet. The web and mobile apps require an active connection."
+  },
+  {
+    "id": "KB012",
+    "category": "Technical",
+    "question": "What browsers are supported?",
+    "answer": "We officially support the latest two versions of Chrome, Firefox, Safari, and Edge. Internet Explorer is not supported."
+  },
+  {
+    "id": "KB013",
+    "category": "Integrations",
+    "question": "Does this integrate with Slack?",
+    "answer": "Yes, go to Settings > Integrations > Slack and click 'Connect'. You'll be redirected to authorize access, after which you can choose which channels receive notifications."
+  },
+  {
+    "id": "KB014",
+    "category": "Integrations",
+    "question": "Can I connect this to Google Calendar?",
+    "answer": "Yes, go to Settings > Integrations > Calendar, select Google Calendar, and authorize access. Events created in the platform will sync to your selected calendar automatically."
+  },
+  {
+    "id": "KB015",
+    "category": "Integrations",
+    "question": "Is there an API available?",
+    "answer": "Yes, REST API access is available on Pro, Team, and Enterprise plans. Generate an API key under Settings > Developer > API Keys. Full documentation is available at docs.product.com/api."
+  },
+  {
+    "id": "KB016",
+    "category": "Data & Privacy",
+    "question": "How do I export my data?",
+    "answer": "Go to Settings > Data > Export, choose CSV or JSON format, and click 'Generate Export'. You'll receive a download link via email once the export is ready, typically within 10 minutes."
+  },
+  {
+    "id": "KB017",
+    "category": "Data & Privacy",
+    "question": "Is my data encrypted?",
+    "answer": "Yes, all data is encrypted in transit using TLS 1.2+ and at rest using AES-256 encryption. Enterprise plans additionally support customer-managed encryption keys."
+  },
+  {
+    "id": "KB018",
+    "category": "Data & Privacy",
+    "question": "Where is my data stored?",
+    "answer": "Data is stored in U.S.-based AWS data centers by default. Enterprise customers can request EU-based data residency for GDPR compliance."
+  },
+  {
+    "id": "KB019",
+    "category": "Plans",
+    "question": "What's the difference between Pro and Team plans?",
+    "answer": "Pro is designed for individual users with unlimited projects and API access. Team adds multi-user support, shared workspaces, and admin controls for up to 25 members. Team also includes priority support."
+  },
+  {
+    "id": "KB020",
+    "category": "Plans",
+    "question": "Is there a free trial?",
+    "answer": "Yes, all paid plans include a 14-day free trial with no credit card required. You can upgrade, downgrade, or cancel at any time during the trial."
+  }
+]
