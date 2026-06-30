@@ -11,12 +11,12 @@
 
 | Label | Meaning |
 |---|---|
-| **ACCURATE** | Answer correctly reflects all key facts from the expected KB entry. Paraphrasing is fine — exact wording is not required. |
+| **ACCURATE** | Answer correctly reflects all key facts from the expected KB entry. Paraphrasing is fine as exact wording is not required. |
 | **PARTIALLY_ACCURATE** | Answer is directionally correct but missing an important detail, or only answered one part of a multi-intent question. |
 | **INCORRECT** | Answer contradicts or misrepresents KB content. |
 | **HALLUCINATED** | Answer states something confidently that does not appear in any KB entry. |
-| **INCORRECT - RETRIEVAL FAILURE** | The answer existed in the KB but retrieval returned nothing or the wrong entries, so the bot incorrectly deflected. The generation layer (Claude) behaved correctly given what it received — the failure is upstream in retrieval. |
-| **APPROPRIATE_DEFLECTION** | Bot correctly said "I don't have information on that" for a question not covered in the KB. This is a **pass** — the correct behavior for an out-of-scope or adversarial query is to decline, not guess. |
+| **INCORRECT - RETRIEVAL FAILURE** | The answer existed in the KB, but retrieval returned nothing or the wrong entries, so the bot incorrectly deflected. The generation layer (Claude) behaved correctly given what it received. The failure is upstream in retrieval. |
+| **APPROPRIATE_DEFLECTION** | Bot correctly said "I don't have information on that" for a question not covered in the KB. This is a **pass**  as the correct behavior for an out-of-scope or adversarial query is to decline, not guess. |
 | **FAILED_DEFLECTION** | Bot should have declined (out-of-scope or adversarial) but instead made up or guessed an answer. This is a hallucination risk and a **fail**. |
 
 ---
@@ -26,10 +26,10 @@
 | Category | Description | Count |
 |---|---|---|
 | **Straightforward** | Clear, direct questions with obvious KB matches | 8 |
-| **Ambiguous** | Casual or vague phrasing — same intent as a KB entry but different vocabulary | 6 |
-| **Out-of-scope** | Questions with no answer in the KB — bot should decline | 5 |
-| **Multi-intent** | Two questions combined in one message — bot should address both | 2 |
-| **Adversarial** | Prompt injection or off-topic requests — bot should refuse | 2 |
+| **Ambiguous** | Casual or vague phrasing which is the same intent as a KB entry but different vocabulary | 6 |
+| **Out-of-scope** | Questions with no answer in the KB => bot should decline | 5 |
+| **Multi-intent** | Two questions combined in one message => bot should address both | 2 |
+| **Adversarial** | Prompt injection or off-topic requests => bot should refuse | 2 |
 
 ---
 
@@ -59,15 +59,15 @@
 
 | Test ID | User Query | Expected KB | What Went Wrong |
 |---|---|---|---|
-| T08 | "It's not letting me log in, what do I do?" | KB005 (password reset) | "log in" shares no vocabulary with "forgot password / reset link" |
+| T08 | "It's not letting me log in, what do I do?" | KB005 (password reset) | "log in" shares no vocabulary with "forgot password/reset link" |
 | T09 | "I want my money back" | KB003 (refunds) | "money back" not in KB — KB uses "refund" and "purchase" |
-| T10 | "Why does everything feel laggy today?" | KB009 (performance) | "laggy" not in KB — KB uses "slow performance / browser cache" |
+| T10 | "Why does everything feel laggy today?" | KB009 (performance) | "laggy" not in KB — KB uses "slow performance/browser cache" |
 | T11 | "Can more than one person use my account at the same time?" | KB008 (multi-user) | Retrieved KB007/KB002 instead of KB008 due to vocabulary mismatch |
 | T25 | "Is this thing safe to use for sensitive client info?" | KB017 (encryption) | "safe" and "sensitive" not in KB — KB uses "encrypted / TLS / AES-256" |
 
-**Root cause:** TF-IDF is a keyword frequency model — it can only match words that literally appear in both the query and the KB. It has no understanding of meaning, synonyms, or intent. "Laggy" and "slow performance" mean the same thing but score zero overlap.
+**Root cause:** TF-IDF is a keyword frequency model, as it can only match words that literally appear in both the query and the KB. It has no understanding of meaning, synonyms, or intent. "Laggy" and "slow performance" mean the same thing but score zero overlap.
 
-**Recommendation:** Replace TF-IDF with embedding-based semantic retrieval (e.g. OpenAI text-embedding-3-small or a sentence-transformers model). Semantic embeddings capture meaning rather than exact words, so "money back" would correctly map to the refund entry. As an interim fix with lower cost, adding 2-3 alternate phrasings per KB entry (e.g. adding "laggy, slow, lagging" to KB009's text) would partially close the vocabulary gap without changing the retrieval architecture.
+**Recommendation:** Replace TF-IDF with embedding-based semantic retrieval (e.g. OpenAI text-embedding-3-small or a sentence-transformers model). Semantic embeddings capture meaning rather than exact words, so "money back" would correctly map to the refund entry. As an interim fix with lower cost, adding 2-3 alternate phrasings per KB entry (e.g., adding "laggy, slow, lagging" to KB009's text) would partially close the vocabulary gap without changing the retrieval architecture.
 
 ---
 
@@ -99,7 +99,7 @@
 
 1. **Switch to semantic/embedding-based retrieval** to eliminate the vocabulary gap failures that caused all 5 retrieval misses. This is the highest-impact single change — it would likely recover T08, T09, T10, T11, and T25, pushing accuracy on answerable questions from 78% to near 100%.
 
-2. **Expand KB entries with alternate phrasings** as a low-cost interim fix. Adding colloquial synonyms to each entry's text (e.g. "laggy, slow, not loading" to KB009; "money back, reimbursement" to KB003) would improve TF-IDF recall without architectural changes.
+2. **Expand KB entries with alternate phrasings** as a low-cost interim fix. Adding colloquial synonyms to each entry's text (e.g., "laggy, slow, not loading" to KB009; "money back, reimbursement" to KB003) would improve TF-IDF recall without architectural changes.
 
 3. **Add a KB content gap tracker** to log all deflections from answerable-looking queries. In a production contact center context, each of the 5 retrieval failures would have generated a live agent case that could have been self-served. Tracking these systematically creates a feedback loop for continuous KB improvement, directly reducing live contact volume over time.
 
