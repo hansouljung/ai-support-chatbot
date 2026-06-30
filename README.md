@@ -6,11 +6,11 @@ A project simulating real-world AI self-service quality work: build a retrieval-
 
 This project mirrors the core workflow of AI self-service evaluation in a contact center context:
 
-1. **Knowledge base** — 20 FAQ entries covering a fictional SaaS product (billing, account management, technical support, integrations, data privacy, and plans)
-2. **Chatbot** — a RAG-style pipeline that retrieves relevant KB entries via TF-IDF cosine similarity, then passes them to Claude as grounded context with a strict system prompt preventing hallucination
-3. **Test set** — 25 queries spanning 6 categories: straightforward, ambiguous, out-of-scope, multi-intent, and adversarial
-4. **Evaluation harness** — runs all 25 queries against the live API, auto-labels out-of-scope and adversarial cases, and outputs a CSV for manual accuracy grading
-5. **Findings report** — documents accuracy results, failure patterns, root cause analysis, and prioritized recommendations
+1. **Knowledge base**: 20 FAQ entries covering a fictional SaaS product (billing, account management, technical support, integrations, data privacy, and plans)
+2. **Chatbot**: a RAG-style pipeline that retrieves relevant KB entries via TF-IDF cosine similarity, then passes them to Claude as grounded context with a strict system prompt preventing hallucination
+3. **Test set**: 25 queries spanning 6 categories: straightforward, ambiguous, out-of-scope, multi-intent, and adversarial
+4. **Evaluation harness**: runs all 25 queries against the live API, auto-labels out-of-scope and adversarial cases, and outputs a CSV for manual accuracy grading
+5. **Findings report**: documents accuracy results, failure patterns, root cause analysis, and prioritized recommendations
 
 ## Key Results
 
@@ -52,10 +52,10 @@ python scripts/evaluate.py
 
 ## Tech Stack
 
-- **Python** — core scripting
-- **scikit-learn** — TF-IDF vectorization and cosine similarity for retrieval
-- **Anthropic Claude API** (claude-sonnet-4-6) — grounded answer generation
-- **Excel / CSV** — manual response grading and results analysis
+- **Python**: core scripting
+- **scikit-learn**: TF-IDF vectorization and cosine similarity for retrieval
+- **Anthropic Claude API** (claude-sonnet-4-6): grounded answer generation
+- **Excel / CSV**: manual response grading and results analysis
 
 ## Skills Demonstrated
 
