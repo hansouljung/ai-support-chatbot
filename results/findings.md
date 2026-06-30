@@ -104,7 +104,3 @@
 3. **Add a KB content gap tracker** to log all deflections from answerable-looking queries. In a production contact center context, each of the 5 retrieval failures would have generated a live agent case that could have been self-served. Tracking these systematically creates a feedback loop for continuous KB improvement — directly reducing live contact volume over time.
 
 ---
-
-## Resume Bullet
-
-> Built and evaluated a retrieval-grounded AI support chatbot, designing a 25-query test set spanning straightforward, ambiguous, out-of-scope, and adversarial cases; identified 78% accuracy on answerable questions and a recurring TF-IDF retrieval gap on colloquial phrasing, translating findings into 3 knowledge base and retrieval architecture recommendations to reduce unnecessary live agent escalations
