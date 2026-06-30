@@ -4,7 +4,6 @@
 **Model:** claude-sonnet-4-6  
 **Knowledge Base:** 20 FAQ entries (Billing, Account, Technical, Integrations, Data & Privacy, Plans)  
 **Test Set:** 25 queries across 6 categories  
-**Date:** June 30, 2026
 
 ---
 
